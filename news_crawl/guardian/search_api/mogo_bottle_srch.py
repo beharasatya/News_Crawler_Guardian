@@ -51,7 +51,7 @@ p_tag = '''<p><pre><code style=display:block;white-space:pre-wrap>{txt}</pre></p
 
 auth_tag = '''<p>By <b><i>{author}</i></b></p>'''
 
-title_tag = '''<p><a href='{url}' style="font-size: 22px;target="_blank"><b>{title}</b></a></p>'''
+title_tag = '''<p style="font-size: 22px;><a href='{url}' target="_blank"><b>{title}</b></a></p>'''
 
 tpl_end = '''</body>
          </html> '''
