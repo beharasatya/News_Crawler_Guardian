@@ -115,4 +115,4 @@ def error404(error):
 
 
 
-run(host='localhost', port=8080, debug=True)
+run(server='auto')

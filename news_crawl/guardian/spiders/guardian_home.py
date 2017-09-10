@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
-from guardian.items import GuardianItem, ErrorItem
+from news_crawl.guardian.items import GuardianItem, ErrorItem
 import w3lib
 from scrapy.http import Request
 import scrapy

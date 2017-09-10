@@ -7,7 +7,7 @@
 import pymongo
 
 from scrapy.conf import settings
-from guardian.items import GuardianItem
+from news_crawl.guardian.items import GuardianItem
 from scrapy import log
 
 
