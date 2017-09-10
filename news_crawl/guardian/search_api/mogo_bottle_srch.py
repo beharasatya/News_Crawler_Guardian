@@ -46,7 +46,7 @@ tpl_start = '''<html>
 #                     </fieldset>
 #                 </form> '''
 
-p_tag = '''<p><pre><code style=display:block;white-space:pre-wrap>{txt}</pre></p>'''
+p_tag = '''<p><pre><code style=display:block;white-space:pre-wrap;>{txt}</pre></p>'''
 
 
 auth_tag = '''<p>By <b><i>{author}</i></b></p>'''
