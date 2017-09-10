@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
-from news_crawl.guardian.items import GuardianItem, ErrorItem
+from guardian.items import GuardianItem, ErrorItem
 import w3lib
 from scrapy.http import Request
 import scrapy
@@ -14,6 +14,7 @@ class GuardianHomeSpider(CrawlSpider):
     start_urls = ['https://theguardian.com/au/']
 
     extractor1 = LinkExtractor(restrict_xpaths='//*[@class="fc-item__container"]')
+    extractor4 = LinkExtractor(restrict_xpaths='//*[@class="fc-item__content"]')
     extractor2 = LinkExtractor(restrict_xpaths='//*[@class="top-navigation__action"]')
     extractor3 = LinkExtractor(restrict_xpaths='//*[@class="local-navigation__action"]')
 
@@ -21,6 +22,7 @@ class GuardianHomeSpider(CrawlSpider):
                 Rule(extractor1, callback='get_links', follow=True),
                 Rule(extractor2, callback='get_links', follow=True),
                 Rule(extractor3, callback='get_links', follow=True),
+                Rule(extractor4, callback='get_links', follow=True),
             )
 
     def parse_start_url(self, response):
