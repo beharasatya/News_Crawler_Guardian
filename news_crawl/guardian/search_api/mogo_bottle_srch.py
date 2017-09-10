@@ -1,7 +1,7 @@
 from bottle import route, run, template, error, static_file, request
 from scrapy.conf import settings
 import pymongo
-import os
+import subprocess
 
 HTML_ROOT = settings['HTML_ROOT']
 CONN = pymongo.MongoClient(
@@ -115,4 +115,5 @@ def error404(error):
 
 
 
-run(server='auto')
+
+run(server='auto', host=subprocess.getoutput('curl http://169.254.169.254/latest/meta-data/public-hostname/public-hostname').split()[-1])
