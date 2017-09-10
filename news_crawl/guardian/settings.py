@@ -14,7 +14,8 @@ BOT_NAME = 'guardian'
 SPIDER_MODULES = ['guardian.spiders']
 NEWSPIDER_MODULE = 'guardian.spiders'
 
-HTML_ROOT = '/Users/satyabehara/Documents/GitHub/isentia_guardian/news_crawl/guardian/search_api/'
+HTML_ROOT = '/srv/www/news_crawl/guardian/search_api/'
+# '/Users/satyabehara/Documents/GitHub/isentia_guardian/news_crawl/guardian/search_api/'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'guardian (+http://www.yourdomain.com)'
 
