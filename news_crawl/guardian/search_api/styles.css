@@ -33,3 +33,12 @@ fieldset legend {
 	background-color:#fafafa;
 	color:#207cca;
 }
+
+code {
+	font-family: "Helvetica Neue";
+	font-size: 15px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 350;
+	line-height: 20px;
+}

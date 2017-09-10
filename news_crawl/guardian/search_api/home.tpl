@@ -17,6 +17,7 @@
     </form>
 
     <p>{{message}}</p>
+    <p>{{results}}</p>
 
   </body>
 </html>

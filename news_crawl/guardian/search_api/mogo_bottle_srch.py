@@ -3,7 +3,7 @@ from scrapy.conf import settings
 import pymongo
 import os
 
-
+HTML_ROOT = settings['HTML_ROOT']
 CONN = pymongo.MongoClient(
     settings['COMPOSE_URI']
 )
@@ -49,9 +49,9 @@ tpl_start = '''<html>
 p_tag = '''<p><pre><code style=display:block;white-space:pre-wrap>{txt}</pre></p>'''
 
 
-auth_tag = '''<p>By <i>{author}</i></p>'''
+auth_tag = '''<p>By <b><i>{author}</i></b></p>'''
 
-title_tag = '''<p><a href='{url}' target="_blank"><b>{title}</b></a></p>'''
+title_tag = '''<p><a href='{url}' style="font-size: 22px;target="_blank"><b>{title}</b></a></p>'''
 
 tpl_end = '''</body>
          </html> '''
@@ -77,13 +77,13 @@ def query_db(keywords):
 
 @route('/<filename>')
 def server_static(filename):
-  return static_file(filename, root='/Users/satyabehara/Documents/MS/scrapy_learn/guardian/search_api/')
+  return static_file(filename, root=HTML_ROOT)
 
 
 @route('/')
 @route('/search')
 def search():
-    return template("home.tpl", message="Please enter the keywords you wish to search in the news database")
+    return template("home.tpl", message="Please enter the keywords you wish to search in the news database", results="")
 
 
 @route('/', method="POST")
@@ -98,12 +98,12 @@ def formhandler():
 
     for hit in hits:
         tpl += title_tag.format(title=hit['title'], url=hit['url'])
-        if hit['author']:
+        if hit['author'] != 'None':
             tpl += auth_tag.format(author=hit['author'])
         tpl += p_tag.format(txt=hit['article'])
     tpl += tpl_end
     if tpl == tpl_start + tpl_end:
-        return template("result.tpl", message=message, results="No Related Articles Found")
+        return template("home.tpl", message=message, results="No Related Articles Found")
     else:
         return template(tpl, message=message)
 
