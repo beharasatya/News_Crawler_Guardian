@@ -18,18 +18,6 @@ class GuardianItem(Item):
 
 
 class ErrorItem(Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
 
     error = Field()
     url = Field()
-
-'''n.find({"article" : {'$regex' : ".*Turnbull.*"}})
-
-n.ensure_index([('article', 'text')])
-
-n.find({"$text": {"$search": 'Turnbull'}}).count()
-
-n.find({"$text": {"$search": "\Drew Morphett\Foxtel"}}, { "score": { "$meta": "textScore" } }).sort( [( "score", { "$meta": "textScore" } ) ])
-
-'''

@@ -13,12 +13,8 @@ from scrapy import log
 
 class GuardianMongoPipeline(object):
 
-    collection_name = 'scrapy_items'
-
     def __init__(self):
         self.connection = pymongo.MongoClient(
-            # settings['MONGODB_SERVER'],
-            # settings['MONGODB_PORT']
             settings['COMPOSE_URI']
         )
         self.db = self.connection[settings['MONGODB_DB']]
@@ -26,19 +22,10 @@ class GuardianMongoPipeline(object):
         self.err_collection = self.db[settings['MONGODB_ERRORS']]
         self.stat_collection = self.db[settings['MONGODB_STATS']]
 
+        # Clear the news articles and the errors from the previous run
         self.collection.remove()
         self.err_collection.remove()
 
-    # @classmethod
-    # def from_crawler(cls, crawler):
-    #     return cls(
-    #
-    #     )
-
-    # def open_spider(self, spider):
-    #     self.client = pymongo.MongoClient(self.mongo_uri)
-    #     self.db = self.client[self.mongo_db]
-    #
     def close_spider(self, spider):
         stats = spider.crawler.stats.get_stats()  # stats is a dictionary
         # write stats to the database here

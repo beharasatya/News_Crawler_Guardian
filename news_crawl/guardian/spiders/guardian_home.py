@@ -4,7 +4,6 @@ from scrapy.linkextractors import LinkExtractor
 from guardian.items import GuardianItem, ErrorItem
 import w3lib
 from scrapy.http import Request
-import scrapy
 
 
 class GuardianHomeSpider(CrawlSpider):
@@ -45,8 +44,6 @@ class GuardianHomeSpider(CrawlSpider):
             body = w3lib.html.remove_tags(body, keep=())
 
             title = response.xpath("//*[re:match(@class, 'content__headline+')]/text()").extract_first()
-            #re:match(@class, 'content__headline+')
-            #@class='content__headline'
             if title:
                 title = title.strip()
 
