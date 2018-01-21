@@ -1,4 +1,4 @@
-# isentia_guardian
+# Guardian
 Project to crawl through Guardian news website and store the scraped results in mongo db on cloud
 
 You can access the api to search for articles on:
