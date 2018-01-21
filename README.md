@@ -1,9 +1,6 @@
 # Guardian
 Project to crawl through Guardian news website and store the scraped results in mongo db on cloud
 
-You can access the api to search for articles on:
-  http://ec2-54-252-255-96.ap-southeast-2.compute.amazonaws.com:8080/search
-  
 
 {web crawl can be done by running 'scrapy crawl guardian_home' inside "news_crawl" directory}
 
